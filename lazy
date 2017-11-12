@@ -63,7 +63,7 @@ do
 				echo 'All done.'
 fi
 
-
+# This part doesn't work yet
 export SCRIPT=$(python3 ~/dirsearch/dirsearch.py)
 
 if [ -e resolveddomains.txt ];then
