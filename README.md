@@ -49,7 +49,7 @@ The script will create to files: domainsfile.txt & resolveddomains.txt
 ## ToDo
 
 - Add more recon tools
-- fix alias: now requires ```bash bash lazy domain.tld``` but should be: ```bash lazy domain.tld```
+- fix alias: now requires ```bash lazy domain.tld``` but should be: ```lazy domain.tld```
 
 
 ## Thanks
