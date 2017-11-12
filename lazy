@@ -33,8 +33,34 @@ if [ -e domainsfile.txt ];then
 fi
 
 if [ -e resolveddomains.txt ];then
-	echo 'Starting webscreenshot on $URL' # requires PhantomJS & webscreenshot
+	echo 'Starting webscreenshot on' $URL # requires PhantomJS & webscreenshot
 	python ~/webscreenshot/webscreenshot.py -i resolveddomains.txt
 	sleep 1
-	echo 'All done, run eog sceenshots to view the screenshots taken.' # todo: make choice y/n to run eog screenshots
+
+	# echo 'All done, run eog sceenshots to view the screenshots taken.' # todo: make choice y/n to run eog screenshots
+fi
+
+if [ -d screenshots ];then
+	# keypressed, read 1 char from stdin using dd
+	# works using any sh-shell
+	readkbd(){
+		stty -icanon -echo
+		dd bs=1 count=1 2>/dev/null
+		stty icanon echo
+	}
+
+while printf "Run eog on screenshots:Y\b"
+	  response=$(readkbd)
+	  printf "\r				\n"
+	  case "$response" in
+	  			Y|y|"") response="Y" ;; # default = ENTER
+				n|N) response="N" ;;
+				*) response="N"	;;
+	  esac
+	  [ "$response" = "Y" ]
+do
+				echo "Using eog to open screenshots directory"
+				eog screenshots
+				done
+				echo 'All done.'
 fi

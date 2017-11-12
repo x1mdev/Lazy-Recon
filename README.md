@@ -49,11 +49,12 @@ The script will create two files: domainsfile.txt & resolveddomains.txt
 
 After this it will run webscreenshot on the resolveddomains.txt file. Just sit back and relax
 
+When this process is done you will be given the choice to open the screenshots directory with eog (default Y) or not. 
 ## ToDo
 
 - Add more recon tools
 - fix alias: now requires ```bash lazy domain.tld``` but should be: ```lazy domain.tld```
-- make choice: open eog screenshots y/n
+- Add dirsearch functionality
 
 ## Thanks
 
