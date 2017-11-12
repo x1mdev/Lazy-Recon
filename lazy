@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#Check if a URL has been set after recon command.
+if [ -d $1 ]; then
+    echo 'Please provide a domain: recon example.com'
+    exit 1
+fi
+
+export URL=$(echo $1)
+
+    #Opens $URL in Sublist3r
+    echo 'Starting Sublist3r on' $URL
+    if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then 
+		python ~/Sublist3r/sublist3r.py -d "$URL" -o domainsfile.txt
+	elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+		python ~/Sublist3r/sublist3r.py -d "$URL" -o domainsfile.txt
+	elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+		python ~/Sublist3r/sublist3r.py -d "$URL" -o domainsfile.txt
+	elif [ "$(uname)" == "Darwin" ]; then
+		python ~/Sublist3r/sublist3r.py -d "$URL" -o domainsfile.txt
+    exit 1
+fi
