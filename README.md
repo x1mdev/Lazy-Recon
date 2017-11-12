@@ -40,3 +40,6 @@ Just to make it a bit more lazy:
 - fix alias: now requires ```bash bash lazy domain.tld``` but should be: ```bash lazy domain.tld```
 
 
+## Thanks
+
+Thanks @EdOverflow for your helpful blog and inspiration to start working on a lazy shell script ;)
