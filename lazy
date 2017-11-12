@@ -62,3 +62,11 @@ do
 				done
 				echo 'All done.'
 fi
+
+
+export SCRIPT=$(python3 ~/dirsearch/dirsearch.py)
+
+if [ -e resolveddomains.txt ];then
+	echo 'Starting dirsearch on resolved domains'
+	python3 ~/dirsearch/dirsearch.py -u . <(cat resolveddomains.txt | awk '{print "$SCRIPT -e *"}')
+fi
