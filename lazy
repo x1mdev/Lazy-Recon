@@ -27,6 +27,6 @@ if [ -e domainsfile.txt ];then
 	do if host "$domain" > /dev/null; 
 	then echo $domain; 
 	fi; 
-	done < domainsfile.txt >> resolveddomains.txt
-	echo 'Resolved domains written to resolveddomains.txt'
+	done < domainsfile.txt >> ${URL}_resolveddomains.txt
+	echo 'Resolved domains written to '${URL}'_resolveddomains.txt'
 fi
