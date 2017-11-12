@@ -15,9 +15,10 @@ Martijn (X1M) - martijn@x1m.nl
 
 ### Requirements
 
-For now the script depends on Sublist3r (https://github.com/aboul3la/Sublist3r).
+- Sublist3r (https://github.com/aboul3la/Sublist3r).
+- webscreenshot (https://github.com/maaaaz/webscreenshot)
 
-If you do not have it already, download it to be able to use Lazy Recon.
+Take note: webscreenshot requires PhantomJS (https://github.com/maaaaz/webscreenshot/wiki/Phantomjs-installation)
 
 ### Installation
 
@@ -44,7 +45,9 @@ cd [ProgramName]
   bash lazy domain.tld
 ```
 
-The script will create to files: domainsfile.txt & resolveddomains.txt
+The script will create two files: domainsfile.txt & resolveddomains.txt
+
+After this it will run webscreenshot on the resolveddomains.txt file. Just sit back and relax
 
 ## ToDo
 

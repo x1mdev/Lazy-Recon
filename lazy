@@ -12,11 +12,11 @@ export URL=$(echo $1)
     echo 'Starting Sublist3r on' $URL
     if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then 
 		python ~/Sublist3r/sublist3r.py -d "$URL" -o domainsfile.txt
-	elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+	elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then # Probably needs tweaking
 		python ~/Sublist3r/sublist3r.py -d "$URL" -o domainsfile.txt
-	elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+	elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then # Probably needs tweaking
 		python ~/Sublist3r/sublist3r.py -d "$URL" -o domainsfile.txt
-	elif [ "$(uname)" == "Darwin" ]; then
+	elif [ "$(uname)" == "Darwin" ]; then # Probably needs tweaking
 		python ~/Sublist3r/sublist3r.py -d "$URL" -o domainsfile.txt
     exit 1
 fi
@@ -29,4 +29,9 @@ if [ -e domainsfile.txt ];then
 	fi; 
 	done < domainsfile.txt >> resolveddomains.txt
 	echo 'Resolved domains written to resolveddomains.txt'
+fi
+
+if [ -e resolveddomains.txt ];then
+	echo 'Starting webscreenshot on $URL' # requires PhantomJS & webscreenshot
+	python ~/webscreenshot/webscreenshot.py -i resolveddomains.txt output example
 fi
