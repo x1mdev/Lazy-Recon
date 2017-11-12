@@ -30,9 +30,21 @@ Just to make it a bit more lazy:
 
 ## Usage
 
+To keep your work organized I suggest creating a new folder for the program you want to start on.
+
+```bash
+  mkdir [ProgramName]
+```
+
+```bash
+cd [ProgramName]
+``` 
+
 ```bash
   bash lazy domain.tld
 ```
+
+The script will create to files: domainsfile.txt & resolveddomains.txt
 
 ## ToDo
 

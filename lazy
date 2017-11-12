@@ -20,3 +20,13 @@ export URL=$(echo $1)
 		python ~/Sublist3r/sublist3r.py -d "$URL" -o domainsfile.txt
     exit 1
 fi
+
+if [ -e domainsfile.txt ];then
+	echo 'Sublist3r Scan complete, checking which domains resolve..'
+	while read domain; 
+	do if host "$domain" > /dev/null; 
+	then echo $domain; 
+	fi; 
+	done < domainsfile.txt >> resolveddomains.txt
+	echo 'Resolved domains written to resolveddomains.txt'
+fi
