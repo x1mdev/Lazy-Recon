@@ -36,8 +36,6 @@ if [ -e resolveddomains.txt ];then
 	echo 'Starting webscreenshot on' $URL # requires PhantomJS & webscreenshot
 	python ~/webscreenshot/webscreenshot.py -i resolveddomains.txt
 	sleep 1
-
-	# echo 'All done, run eog sceenshots to view the screenshots taken.' # todo: make choice y/n to run eog screenshots
 fi
 
 if [ -d screenshots ];then
@@ -49,12 +47,12 @@ if [ -d screenshots ];then
 		stty icanon echo
 	}
 
-while printf "Run eog on screenshots:Y\b"
+while printf "Run eog on screenshots:N\b" # default N to continue script
 	  response=$(readkbd)
 	  printf "\r				\n"
 	  case "$response" in
-	  			Y|y|"") response="Y" ;; # default = ENTER
-				n|N) response="N" ;;
+	  			Y|y) response="Y" ;; 
+				n|N|"") response="N" ;; # default = ENTER
 				*) response="N"	;;
 	  esac
 	  [ "$response" = "Y" ]
