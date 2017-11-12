@@ -53,7 +53,7 @@ After this it will run webscreenshot on the resolveddomains.txt file. Just sit b
 
 - Add more recon tools
 - fix alias: now requires ```bash lazy domain.tld``` but should be: ```lazy domain.tld```
-
+- make choice: open eog screenshots y/n
 
 ## Thanks
 

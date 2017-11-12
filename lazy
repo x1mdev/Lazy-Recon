@@ -29,9 +29,12 @@ if [ -e domainsfile.txt ];then
 	fi; 
 	done < domainsfile.txt >> resolveddomains.txt
 	echo 'Resolved domains written to resolveddomains.txt'
+	sleep 1
 fi
 
 if [ -e resolveddomains.txt ];then
 	echo 'Starting webscreenshot on $URL' # requires PhantomJS & webscreenshot
-	python ~/webscreenshot/webscreenshot.py -i resolveddomains.txt output example
+	python ~/webscreenshot/webscreenshot.py -i resolveddomains.txt
+	sleep 1
+	echo 'All done, run eog sceenshots to view the screenshots taken.' # todo: make choice y/n to run eog screenshots
 fi
